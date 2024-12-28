@@ -1,0 +1,6 @@
+{{ 'sections.cart.new_subtotal' | t }}: <span class="wcp-original-cart-total"><span class="wh-original-cart-total"><span class='wh-original-price'>{{ cart.total_price | money}}</span></span><span class="wh-cart-total"></span><div class="additional-notes"><span class="wh-minimums-note"></span><span class="wh-extra-note"></span></div></span>
+    <span class="wcp-cart-total"></span>
+    <div class="additional-notes">
+        <span class="wcp-minimums-note"></span>
+        <span class="wcp-extra-note "></span>
+    </div>{% render "wcp_multi_currency_msg" %}
