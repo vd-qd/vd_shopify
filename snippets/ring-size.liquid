@@ -30,9 +30,9 @@
         <select 
         title="Ring Size Selector"
         form="{{ form_id }}"
-        id="ring_size_dropdown_option1"
+        id="ring_size_dropdown_option"
         class="ring_size_dropdown SingleOptionSelector-{{ section_id }}-{{ product.id }}-option-{{ forloop.index0 }}"
-        name="properties[Estimated Shipping]"
+        name="items[1][properties][{{ inline_size_name }}]"
         style="width:146px; height: 40px;"
         oninvalid="this.setCustomValidity('Please select a size')" oninput="setCustomValidity('')"
         required
@@ -61,7 +61,8 @@
             <option value="9.00" class="variant-input">9.00</option>
             {%- if form_id and form_id == 'addToCartButtonRingReview' -%}<option value="9.50" class="variant-input">9.50</option>{%- endif -%}
         </select>
-    
+    </div>
+    </div>
     {%- unless 
         product.tags contains "Tennis Bracelet" or product.tags contains "Fashion Bracelet" or product.tags contains "Anklets" or 
         product.tags contains "Bangles" or product.tags contains "Men's Necklace"  or product.tags contains "Men's Bracelet" or 
