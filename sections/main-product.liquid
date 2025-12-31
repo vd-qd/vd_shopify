@@ -608,7 +608,14 @@
                   </div>
 
                   {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                   {%- if product.tags contains "Solitaire Engagement Ring" or product.tags contains "Side Stone Engagement Ring" or product.tags contains "Halo Engagement Ring" 
+                    <input
+                      type="hidden"
+                      name="id"
+                      value="{{ product.selected_or_first_available_variant.id }}"
+                      disabled
+                    >
+
+                      {%- if product.tags contains "Solitaire Engagement Ring" or product.tags contains "Side Stone Engagement Ring" or product.tags contains "Halo Engagement Ring" 
                       or product.tags contains "Three Stone Engagement Ring" or product.tags contains "Hidden Halo Engagement Ring" or product.tags contains "Half Eternity Band"
                        or product.tags contains "Full Eternity Band" or product.tags contains "Men's Band" or product.tags contains "Wedding Band" or product.tags contains "Wedding Bands" or product.tags contains "Fashion Ring"  
                        or product.tags contains "Fashion Band"  or product.tags contains "Stackable Ring" or product.tags contains "Tennis Bracelet" or product.tags contains "Fashion Bracelet" 
@@ -634,12 +641,6 @@
                       </div>
                     {% endif %}
                     {%- endif -%}
-                    <input
-                      type="hidden"
-                      name="id"
-                      value="{{ product.selected_or_first_available_variant.id }}"
-                      disabled
-                    >
                       <label>Select Estimated Shipping</label>
                       <select name="properties[Estimated Shipping]">
                         {% for i in (1..10) %}
