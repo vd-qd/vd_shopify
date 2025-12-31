@@ -608,12 +608,12 @@
                   </div>
 
                   {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                    <input
+                    {% comment %} <input
                       type="hidden"
                       name="items[0][id]"
                       value="{{ product.selected_or_first_available_variant.id }}"
                       disabled
-                    >
+                    > {% endcomment %}
 
                       {%- if product.tags contains "Solitaire Engagement Ring" or product.tags contains "Side Stone Engagement Ring" or product.tags contains "Halo Engagement Ring" 
                       or product.tags contains "Three Stone Engagement Ring" or product.tags contains "Hidden Halo Engagement Ring" or product.tags contains "Half Eternity Band"
