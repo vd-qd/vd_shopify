@@ -614,6 +614,12 @@
                       value="{{ product.selected_or_first_available_variant.id }}"
                       disabled
                     > {% endcomment %}
+                        <input
+                      type="hidden"
+                      name="items[0][id]"
+                      value="{{ product.selected_or_first_available_variant.id }}"
+                      disabled
+                    >
 
                       {%- if product.tags contains "Solitaire Engagement Ring" or product.tags contains "Side Stone Engagement Ring" or product.tags contains "Halo Engagement Ring" 
                       or product.tags contains "Three Stone Engagement Ring" or product.tags contains "Hidden Halo Engagement Ring" or product.tags contains "Half Eternity Band"
