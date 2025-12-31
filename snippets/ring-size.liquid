@@ -25,8 +25,7 @@
             {%- assign inline_size_name = "Ring Size" -%}
         {%- endif -%}
     </label>
-    <div class="variant-wrapper variant-wrapper--dropdown js">
-    <div class="variant-input-wrap">
+
         <span class="single-size-opt-label hide"></span>
         <select 
         title="Ring Size Selector"
@@ -62,8 +61,7 @@
             <option value="9.00" class="variant-input">9.00</option>
             {%- if form_id and form_id == 'addToCartButtonRingReview' -%}<option value="9.50" class="variant-input">9.50</option>{%- endif -%}
         </select>
-    </div>
-    </div>
+    
     {%- unless 
         product.tags contains "Tennis Bracelet" or product.tags contains "Fashion Bracelet" or product.tags contains "Anklets" or 
         product.tags contains "Bangles" or product.tags contains "Men's Necklace"  or product.tags contains "Men's Bracelet" or 
