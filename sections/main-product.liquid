@@ -608,7 +608,32 @@
                   </div>
 
                   {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                   
+                   {%- if product.tags contains "Solitaire Engagement Ring" or product.tags contains "Side Stone Engagement Ring" or product.tags contains "Halo Engagement Ring" 
+                      or product.tags contains "Three Stone Engagement Ring" or product.tags contains "Hidden Halo Engagement Ring" or product.tags contains "Half Eternity Band"
+                       or product.tags contains "Full Eternity Band" or product.tags contains "Men's Band" or product.tags contains "Wedding Band" or product.tags contains "Wedding Bands" or product.tags contains "Fashion Ring"  
+                       or product.tags contains "Fashion Band"  or product.tags contains "Stackable Ring" or product.tags contains "Tennis Bracelet" or product.tags contains "Fashion Bracelet" 
+                       or product.tags contains "Anklets" or product.tags contains "Bangles" or product.tags contains "Men's Necklace" or product.tags contains "Men's Ring" or product.tags contains "Men's Bracelet"
+                       or product.tags contains "Solitaire Pendant" or product.tags contains "Fashion Pendant" or product.tags contains "Tennis Necklace" or product.tags contains "Fashion Necklace"
+                       or product.tags contains "Ring Enhancer" or product.tags contains "Eternity Band"  or product.tags contains "Anniversary Band" or product.tags contains "Bridal Set"
+                       or product.tags contains "col_Initials" or product.tags contains "col_Zodiac" or product.tags contains "Ring_Size" -%}
+                    {%- comment -%}{%- if product.tags contains "Solitaire Engagement Ring" or product.tags contains "Side Stone Engagement Ring" or product.tags contains "Halo Engagement Ring" 
+                       or product.tags contains "Three Stone Engagement Ring" or product.tags contains "Hidden Halo Engagement Ring" or product.tags contains "Half Eternity Band"
+                       or product.tags contains "Full Eternity Band" or product.tags contains "Men's Band" or product.tags contains "Wedding Band" or product.tags contains "Fashion Ring"  
+                       or product.tags contains "Fashion Band"  or product.tags contains "Stackable Ring"
+                       or product.tags contains "Men's Ring" or product.tags contains "Men's Bracelet"
+                       or product.tags contains "Ring Enhancer" or product.tags contains "Eternity Band"  or product.tags contains "Anniversary Band" or product.tags contains "Bridal Set"
+                       or product.tags contains "Men's Necklace" or product.tags contains "Solitaire Pendant" or product.tags contains "Fashion Pendant"
+                       or product.tags contains "Tennis Necklace" or product.tags contains "Fashion Necklace" or product.tags contains "col_Initials" or product.tags contains "col_Zodiac" 
+                    -%}{% endif %}{%- endcomment -%}
+                      {% if product.handle != '5-ctw-round-diamond-four-prong-box-tennis-bracelet-6' and product.handle != '10-ctw-round-diamond-chain-tennis-necklace-1' %}
+                      <div class="ring-size-dropDown">
+                        {%- render 'ring-size', 
+                            product: product,
+                            form_id: form_id,
+                        -%}
+                      </div>
+                    {% endif %}
+                    {%- endif -%}
                     <input
                       type="hidden"
                       name="id"
