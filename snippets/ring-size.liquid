@@ -1,4 +1,5 @@
 
+   <label class="variant__label" style="margin-right: 42px;     margin-top: 4px;">
         {%- if 
             product.tags contains "Tennis Bracelet" or product.tags contains "Fashion Bracelet" or product.tags contains "Anklets" or 
             product.tags contains "Bangles" or product.tags contains "Men's Necklace"  or product.tags contains "Men's Bracelet" or 
@@ -25,7 +26,7 @@
         {%- endif -%}
     </label>
 
-       
+        <span class="single-size-opt-label hide"></span>
         <select 
         title="Ring Size Selector"
         form="{{ form_id }}"
@@ -75,83 +76,4 @@
     -%}{% endunless %} {%- endcomment -%}
         <div role="button" tabindex="0" id="ring-sizer" data-store_code="von-diamonds">Find your Ring Size</div>
     {%- endunless -%}
-</div>
-{%- comment -%}<script type="text/javascript" src="https://ringsizer.grownbrilliance.com/js/app/widget.js"></script>{%- endcomment -%}
-{%- if product.tags contains "Full Eternity Band" -%}
-    <script>
-    // Declare ring_size_json in the global scope
-    let ring_size_json;function changeDetailContainBaseOnRingSize(e){document.querySelectorAll(".main_stone_count_details_section").forEach(function(n){n.innerHTML=ring_size_json[e].main_stone_count});document.querySelectorAll(".main_stone_weight_each_details_section").forEach(function(n){n.innerHTML=ring_size_json[e].main_stone_weight_each});document.querySelectorAll(".side_stone_1_count_details_section").forEach(function(n){n.innerHTML=ring_size_json[e].side_stone_1_count});document.querySelectorAll(".side_stone_1_weight_each_details_section").forEach(function(n){n.innerHTML=ring_size_json[e].side_stone_1_weight_each});document.querySelectorAll(".side_stone_2_count_details_section").forEach(function(n){n.innerHTML=ring_size_json[e].side_stone_2_count});document.querySelectorAll(".side_stone_2_weight_each_details_section").forEach(function(n){n.innerHTML=ring_size_json[e].side_stone_2_weight_each})}document.addEventListener("DOMContentLoaded",function(){let e='<option value="" disabled selected>--</option>',n=Object.keys(ring_size_json={{ product.selected_or_first_available_variant.metafields.custom.sizes_json }});for(let i of n)e+=`<option value="${i}"  class="variant-input"  onclick="changeDetailContainBaseOnRingSize('${i}')">${i}</option> `;document.getElementById("ring_size_dropdown_option").innerHTML=e});
-    {%- comment -%}
-    let ring_size_json;
 
-    // Define yourFunction here to handle the click event
-    function changeDetailContainBaseOnRingSize(selectedValue) {
-        let main_stone_count_details_section = document.querySelectorAll('.main_stone_count_details_section');
-        main_stone_count_details_section.forEach(function(targetElement) {
-            targetElement.innerHTML = ring_size_json[selectedValue].main_stone_count;
-        });
-        let main_stone_weight_each_details_section = document.querySelectorAll('.main_stone_weight_each_details_section');
-        main_stone_weight_each_details_section.forEach(function(targetElement) {
-            targetElement.innerHTML = ring_size_json[selectedValue].main_stone_weight_each;
-        });
-        let side_stone_1_count_details_section = document.querySelectorAll('.side_stone_1_count_details_section');
-        side_stone_1_count_details_section.forEach(function(targetElement) {
-            targetElement.innerHTML = ring_size_json[selectedValue].side_stone_1_count;
-        });
-        let side_stone_1_weight_each_details_section = document.querySelectorAll('.side_stone_1_weight_each_details_section');
-        side_stone_1_weight_each_details_section.forEach(function(targetElement) {
-            targetElement.innerHTML = ring_size_json[selectedValue].side_stone_1_weight_each;
-        });
-        let side_stone_2_count_details_section = document.querySelectorAll('.side_stone_2_count_details_section');
-        side_stone_2_count_details_section.forEach(function(targetElement) {
-            targetElement.innerHTML = ring_size_json[selectedValue].side_stone_2_count;
-        });
-        let side_stone_2_weight_each_details_section = document.querySelectorAll('.side_stone_2_weight_each_details_section');
-        side_stone_2_weight_each_details_section.forEach(function(targetElement) {
-            targetElement.innerHTML = ring_size_json[selectedValue].side_stone_2_weight_each;
-        });
-    }
-    document.addEventListener("DOMContentLoaded", function () {
-        ring_size_json = {{ product.selected_or_first_available_variant.metafields.custom.sizes_json }};
-        // Extract and print the keys
-        let ring_size_dropdown_inner_content = `<option value="" disabled selected>--</option>`;
-        let keys = Object.keys(ring_size_json);
-        for (const key of keys) {
-            ring_size_dropdown_inner_content = ring_size_dropdown_inner_content + `<option value="${key}"  class="variant-input"  onclick="changeDetailContainBaseOnRingSize('${key}')">${key}</option> `;
-        }
-        // Set the innerHTML of the element with the ID "ring_size_dropdown_option"
-        document.getElementById("ring_size_dropdown_option").innerHTML = ring_size_dropdown_inner_content;
-    });
-    {%- endcomment -%}
-    </script>
-{%- elsif page.title contains "DYO-Ring Review" or page.title contains "dyo-ring-review" or page.handle contains "customize-your-own-gemstone-ring-review" -%}
-    <script>
-    let ring_size_dropdown_inner_content = `<option value="" disabled selected>--</option>`;
-    </script>
-{%- else -%}
-    <script>
-      document.addEventListener("DOMContentLoaded",function(){let e="{{ product.selected_or_first_available_variant.metafields.custom.size.value }}",t=e.split(","),i='<option value="" disabled selected>--</option>',o="";1==t.length&&(i="",o="selected",document.getElementById("ring_size_dropdown_option").value=e,document.querySelector(".single-size-opt-label").innerHTML=e,document.querySelector(".single-size-opt-label").classList.remove("hide"),document.querySelector("#ring_size_dropdown_option").classList.add("hide")),t.forEach(e=>{i+=`<option value="${e}"  class="variant-input" ${o}>${e}</option> `}),document.getElementById("ring_size_dropdown_option").innerHTML=i});
-      {%- comment -%}
-        document.addEventListener("DOMContentLoaded", function () {
-            let ring_sizes = "{{ product.selected_or_first_available_variant.metafields.custom.size }}";
-            // Split the string into an array using the comma as a delimiter
-            const ring_sizes_array = ring_sizes.split(',');
-            let ring_size_dropdown_inner_content = `<option value="" disabled selected>--</option>`;
-            let is_selected = '';
-            if(ring_sizes_array.length == 1){
-              ring_size_dropdown_inner_content = '';
-              is_selected = 'selected';
-              document.getElementById('ring_size_dropdown_option').value = ring_sizes;
-              document.querySelector('.single-size-opt-label').innerHTML = ring_sizes;
-              document.querySelector('.single-size-opt-label').classList.remove('hide');
-              document.querySelector('#ring_size_dropdown_option').classList.add('hide');
-            }
-            ring_sizes_array.forEach(value => {
-                ring_size_dropdown_inner_content = ring_size_dropdown_inner_content + `<option value="${value}"  class="variant-input" ${is_selected}>${value}</option> `;
-            });
-            // Set the innerHTML of the element with the ID "ring_size_dropdown_option"
-            document.getElementById("ring_size_dropdown_option").innerHTML = ring_size_dropdown_inner_content;
-        });
-        {%- endcomment -%}
-    </script>
-{%- endif -%}
